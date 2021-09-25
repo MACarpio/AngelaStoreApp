@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Semestre 6\\Programacion 1\\AngelaStoreApp\\AngelaStoreApp.csproj": {}
+    "D:\\Github\\Programacion I\\Laboratorio\\Proyecto Final\\AngelaStoreApp\\AngelaStoreApp.csproj": {}
   },
   "projects": {
-    "E:\\Semestre 6\\Programacion 1\\AngelaStoreApp\\AngelaStoreApp.csproj": {
+    "D:\\Github\\Programacion I\\Laboratorio\\Proyecto Final\\AngelaStoreApp\\AngelaStoreApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Semestre 6\\Programacion 1\\AngelaStoreApp\\AngelaStoreApp.csproj",
+        "projectUniqueName": "D:\\Github\\Programacion I\\Laboratorio\\Proyecto Final\\AngelaStoreApp\\AngelaStoreApp.csproj",
         "projectName": "AngelaStoreApp",
-        "projectPath": "E:\\Semestre 6\\Programacion 1\\AngelaStoreApp\\AngelaStoreApp.csproj",
-        "packagesPath": "C:\\Users\\mauri\\.nuget\\packages\\",
-        "outputPath": "E:\\Semestre 6\\Programacion 1\\AngelaStoreApp\\obj\\",
+        "projectPath": "D:\\Github\\Programacion I\\Laboratorio\\Proyecto Final\\AngelaStoreApp\\AngelaStoreApp.csproj",
+        "packagesPath": "C:\\Users\\Edwin\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\Programacion I\\Laboratorio\\Proyecto Final\\AngelaStoreApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mauri\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Edwin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -40,23 +40,31 @@
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.9, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.9, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.9, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.7, )"
             }
           },
           "imports": [
