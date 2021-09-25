@@ -4,13 +4,12 @@
 @{
     ViewData["Title"] = "Log in";
 }
+<br>
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
     <div class="login">
         <section>
             <form id="account" method="post">
-                <h4>Crea tu cuenta en Angela Store.</h4>
+                <h4>Log in.</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
@@ -32,23 +31,23 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <button type="submit" class="btn-navbar">Log in</button>
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Olvidaste tu contraseña?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Registrar una cuenta nueva</a>
                     </p>
                     <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Reenviar correo de confirmación</a>
                     </p>
                 </div>
             </form>
         </section>
     </div>
-</div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
