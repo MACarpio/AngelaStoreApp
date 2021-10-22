@@ -1,6 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -166,4 +167,165 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+/* Codigo Estilo Basico Pagina WEB*/
+.img-cover{
+  position: relative;
+  display: inline-block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.logo{
+  height: 50px;
+}
+.carrusel-container{
+  height: 500px;
+}
+
+.seccion-title{
+  margin-bottom: 0.5rem;
+}
+.item-nav{
+  font-size: 14px;
+  color:black;
+  transition: all 0.3s ease;
+}
+
+.item-nav:hover{
+  color: #17b0d6 ;
+  font-size: 15px !important;
+}
+.seccion-titulo{
+  margin: 20px 0;
+}
+
+.titulo-seccion{
+  font-size: 1.7rem;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.seccion-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.seccion{
+  text-align: center;
+  width: 50%;
+  height: 50vh;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+.seccion:hover > h5{
+  transition: all 0.5s ease;
+  color: #17b0d6;
+}
+
+.slogan-emp{
+  margin: 15px 10%;
+}
+@media (max-width: 768px) {
+  .seccion {
+      width: 100%;
+      margin-bottom: 3rem;
+      height: 40vh;
+  }
+}
+
+.seccion-container .seccion a{
+  width: 100%;
+  height: 100%;
+}
+
+.img-seccion{
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about{
+  display: grid;
+}
+.about-img{
+  background-image: url(~/img/img-about.jpg);
+  width: 100vw;
+  height: 70vh;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+}
+
+.caja-titulo{
+  display: flex;
+  align-items: center;
+  z-index: 4;
+  top: -50px;
+  position: relative;
+  margin: auto;
+  margin-bottom: -20px;
+  height: 15vh;
+  width: 70vw;
+  background: linear-gradient(90deg, rgb(249, 251, 252) 4%, #17b0d6 100%);
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0px 1px 3px 1px black;
+}
+.about-titulo{
+  font-size: 2.5rem;
+  margin: 0 auto;
+  color: #000;
+  display: inline-block;
+  font-weight: bold;
+}
+@media (max-width: 500px) {
+  .about-titulo{
+      font-size: 1.75rem;
+  }
+}
+.about .about-info{
+  margin: auto;
+  width: 70vw;
+}
+.about .about-info .info-emp{
+  display: flex;
+  flex-direction: row;
+}
+.about .about-info .info-emp .direc-emp,.about .about-info .info-emp .tel-emp{
+  width: 50%;
+  margin-top: 20px;
+}
+.about .about-info p{
+  text-align: center;
+  font-size: 1rem;
+}
+.about .about-info h4{
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.about .about-info ul{
+  list-style:none;
+  text-align: center;
+  margin-left: -40px;
+}
+
+.btn-prim{
+  border: red 1px solid;
+  display: inline-block;
+  padding: 10px 20px;
+}
+.btn-prim a{
+  text-decoration: none;
+}
+.container-form{
+  margin: 20px 20%;
+  background-color: rgb(225, 237, 11,.6);
+  padding: 30px 70px;
+  border-radius: 50px;
 }
