@@ -1,46 +1,32 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AngelaStoreApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
-    <header>
-        <div class="navbar">
-            <a class="navbar_logo" asp-area="" asp-controller="Home" asp-action="Index">AngelaStoreApp</a>
-            <div class="list-items">
-                <ul class="navbar_links">
-                    <li>
-                        <a asp-area="" asp-controller="Catalogo" asp-action="Index">Productos</a>
-                    </li>
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="AboutUs">Contactanos</a>
-                    </li>
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="AboutUs">About us</a>
-                    </li>
-                </ul>
-            </div>
-            <partial name="_LoginPartial" />
-        </div>
-    </header>
-    <div class="container">
+    <head style="background-color: #297D90;">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AngelaStore</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+
+    </head>
+    <body>
+        <header> 
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-2 d-flex justify-content-between">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/wwwroot/images/Logo.png" class="logo"></a>
+                    <partial name="_MenuPartial" />
+                    <partial name="_LoginPartial" />
+            </nav>
+        </header>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
+        <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - AngelaStoreApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+    </body>
 </html>
