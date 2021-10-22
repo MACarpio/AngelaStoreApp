@@ -3,33 +3,34 @@
 @{
     ViewData["Title"] = "Register";
 }
-<br>
 
-<div class="row">
-    <div class="login">
+<div class="container-form">
+        <div class="seccion-titulo" >
+            <h5 class="titulo-prim">Crear cuenta nueva.</h5>
+        </div>
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Crear cuenta nueva.</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" placeholder="Ingresa tu correo"/>
+                <label asp-for="Input.Email" class="control-label"></label>
+                <input asp-for="Input.Email" class="form-control" placeholder="Ingresa tu correo" type="text" required/>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" placeholder="Ingresa una contraseña" />
+                <label asp-for="Input.Password" class="control-label"></label>
+                <input asp-for="Input.Password" class="form-control" placeholder="Ingresa una contraseña" type="password" required/>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirma contraseña"/>
+                <label asp-for="Input.ConfirmPassword" class="control-label"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirma contraseña" type="password" required/>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn-navbar">Registrar</button>
+            <button type="submit" class="btn-prim form-control">Registrar</button>
         </form>
-    </div>
+    
 </div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -28,6 +28,7 @@ ul{
   color: black;
 }
 
+
 .navbar_logo{
   font-size: 15px;
 }
@@ -179,7 +180,7 @@ body {
 }
 
 .logo{
-  height: 50px;
+  height: 25px;
 }
 .carrusel-container{
   height: 500px;
@@ -203,23 +204,29 @@ body {
 }
 
 .titulo-seccion{
+  font-size: 1.3rem;
+  color: #456;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.titulo-prim{
   font-size: 1.7rem;
   color: #333;
   text-align: center;
   font-weight: 600;
   text-transform: uppercase;
 }
-
 .seccion-container{
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
 
 .seccion{
   text-align: center;
   width: 50%;
   height: 50vh;
-  margin-bottom: 3rem;
   align-items: center;
 }
 
@@ -229,13 +236,19 @@ body {
 }
 
 .slogan-emp{
-  margin: 15px 10%;
+  margin: 20px 10%;
 }
 @media (max-width: 768px) {
   .seccion {
       width: 100%;
       margin-bottom: 3rem;
       height: 40vh;
+  }
+  .seccion-container{
+    margin-bottom: -20px;
+  }
+  .seccion-categoria{
+    margin-bottom: 0;
   }
 }
 
@@ -253,7 +266,7 @@ body {
   display: grid;
 }
 .about-img{
-  background-image: url(~/img/img-about.jpg);
+  background-image: url(/img/img-about.jpg);
   width: 100vw;
   height: 70vh;
   background-size: cover;
@@ -316,16 +329,45 @@ body {
 }
 
 .btn-prim{
-  border: red 1px solid;
+  border: none;
   display: inline-block;
   padding: 10px 20px;
+  color: white;
+  border-radius: 30px;
+  background-color: #17b0d6;
+}
+.btn-prim:hover{
+  transition: all 0.5s;
+  color: black;
 }
 .btn-prim a{
   text-decoration: none;
 }
+
 .container-form{
-  margin: 20px 20%;
-  background-color: rgb(225, 237, 11,.6);
-  padding: 30px 70px;
+  margin: 20px 29%;
+  background-color: #17b0d658;
+  padding: 20px 50px;
   border-radius: 50px;
+}
+@media (max-width: 768px) {
+  .container-form{
+    z-index: 1000;
+    margin: 40px ;
+    padding: 10px 20px;
+    border-radius: 50px;
+  }
+}
+.seccion-categoria{
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .seccion-categoria{
+    margin-bottom: 2rem;
+  }
+}
+
+.btn-form{
+  margin: 0 ;
 }
