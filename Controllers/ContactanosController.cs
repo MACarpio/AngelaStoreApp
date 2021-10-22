@@ -47,8 +47,7 @@ namespace App_AngelaStore.Controllers
         {
             _context.Add(objContactanos);
             _context.SaveChanges();
-            ViewData["Message"] = "El Mensaje fue enviado con éxito";
-            return View();
+            return RedirectToAction(nameof(Create));
         }
          public async Task<IActionResult> Delete(int? id)
         {

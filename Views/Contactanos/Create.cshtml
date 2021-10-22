@@ -6,10 +6,10 @@
 
 <div class="container-form">
 <div class="seccion-titulo" >
-  <h5 class="titulo-seccion">Contactanos</h5>
+  <h5 class="titulo-prim">Contactanos</h5>
 </div>
 <form asp-controller="Contactanos" asp-action="Create">
-     <div class="form-group" style="text-align: left;">
+     <div class="form-group" >
                 <label asp-for="Nombre" class="control-label">Nombre :</label>
                 <input asp-for="Nombre" class="form-control" placeholder="Escriba su nombre completo" type="text" required/>
             </div>    
@@ -32,11 +32,8 @@
             </div>   
                    
             <div class="form-group"  >
-                 <button type="submit" class="btn btn-primary" type="text" required>Enviar</button> 
+                 <button type="submit" class="btn-prim form-control btn-form" type="text" required>Enviar</button> 
             </div>                
 
 </form>
-</div>
-<div class="alert alert-success" role="alert">
-    <h1>@ViewData["Message"]</h1>
 </div>
