@@ -12,5 +12,13 @@ namespace AngelaStoreApp.Data
             : base(options)
         {
         }
+        public DbSet<AngelaStoreApp.Models.Contact> DataContacts {get; set;}
+
+        public DbSet<AngelaStoreApp.Models.Product> DataProduct {get; set;}
+
+        public DbSet<AngelaStoreApp.Models.Proforma> DataProforma {get; set;}
+
+        public DbSet<AngelaStoreApp.Models.Pago> DataPago {get; set;}
+
     }
 }
