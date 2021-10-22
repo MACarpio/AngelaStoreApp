@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\Programacion I\\AngelaStore\\AngelaStoreApp\\AngelaStoreApp.csproj": {}
+    "E:\\Semestre 6\\Programacion 1\\Trabajo Fianl\\AngelaStoreApp\\AngelaStoreApp.csproj": {}
   },
   "projects": {
-    "D:\\Github\\Programacion I\\AngelaStore\\AngelaStoreApp\\AngelaStoreApp.csproj": {
+    "E:\\Semestre 6\\Programacion 1\\Trabajo Fianl\\AngelaStoreApp\\AngelaStoreApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\Programacion I\\AngelaStore\\AngelaStoreApp\\AngelaStoreApp.csproj",
+        "projectUniqueName": "E:\\Semestre 6\\Programacion 1\\Trabajo Fianl\\AngelaStoreApp\\AngelaStoreApp.csproj",
         "projectName": "AngelaStoreApp",
-        "projectPath": "D:\\Github\\Programacion I\\AngelaStore\\AngelaStoreApp\\AngelaStoreApp.csproj",
-        "packagesPath": "C:\\Users\\Edwin\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\Programacion I\\AngelaStore\\AngelaStoreApp\\obj\\",
+        "projectPath": "E:\\Semestre 6\\Programacion 1\\Trabajo Fianl\\AngelaStoreApp\\AngelaStoreApp.csproj",
+        "packagesPath": "C:\\Users\\mauri\\.nuget\\packages\\",
+        "outputPath": "E:\\Semestre 6\\Programacion 1\\Trabajo Fianl\\AngelaStoreApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Edwin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mauri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"

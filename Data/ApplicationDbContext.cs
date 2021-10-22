@@ -12,7 +12,7 @@ namespace AngelaStoreApp.Data
             : base(options)
         {
         }
-        public DbSet<AngelaStoreApp.Models.Contact> DataContacts {get; set;}
+        public DbSet<AngelaStoreApp.Models.Contactanos> DataContactanos { get; set; }
 
         public DbSet<AngelaStoreApp.Models.Product> DataProduct {get; set;}
 
