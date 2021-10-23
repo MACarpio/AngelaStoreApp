@@ -12,6 +12,6 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 
 #CAMBIAR AQUI EL NOMBRE DEL APLICATIVO
-ENV APP_NET_CORE angelastoreapp.dll 
+ENV APP_NET_CORE AngelaStoreApp.dll 
 
 CMD ASPNETCORE_URLS=http://*:$PORT dotnet $APP_NET_CORE
