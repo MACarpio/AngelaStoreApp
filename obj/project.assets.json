@@ -7559,11 +7559,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "e:\\Semestre 6\\Programacion 1\\Trabajo Fianl\\AngelaStoreApp\\AngelaStoreApp.csproj",
+      "projectUniqueName": "e:\\Semestre 6\\Programacion 1\\Trabajo Final\\AngelaStoreApp\\AngelaStoreApp.csproj",
       "projectName": "AngelaStoreApp",
-      "projectPath": "e:\\Semestre 6\\Programacion 1\\Trabajo Fianl\\AngelaStoreApp\\AngelaStoreApp.csproj",
+      "projectPath": "e:\\Semestre 6\\Programacion 1\\Trabajo Final\\AngelaStoreApp\\AngelaStoreApp.csproj",
       "packagesPath": "C:\\Users\\mauri\\.nuget\\packages\\",
-      "outputPath": "e:\\Semestre 6\\Programacion 1\\Trabajo Fianl\\AngelaStoreApp\\obj\\",
+      "outputPath": "e:\\Semestre 6\\Programacion 1\\Trabajo Final\\AngelaStoreApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mauri\\AppData\\Roaming\\NuGet\\NuGet.Config"
