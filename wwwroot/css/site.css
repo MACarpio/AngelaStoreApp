@@ -383,11 +383,6 @@ body {
   .navbar-nav{
     display: none;
   }
-
-  .bar-andorid{
-    display:inline-flexbox;
-    position: relative;
-  }
 }
 .img-catalogo{
   width:100%;
@@ -529,10 +524,30 @@ body {
 }
 .bar-andorid{
   display: none;
+  font-size: 100px;
 }
 @media (max-width: 658px) {
   .bar-andorid{
     display:inline;
     position: relative;
   }
+}
+.container-buscar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buscar-producto{
+  width: 500px ;
+  display: inline-block;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
