@@ -20,5 +20,9 @@ namespace AngelaStoreApp.Data
 
         public DbSet<AngelaStoreApp.Models.Pago> DataPago {get; set;}
 
+        public DbSet<AngelaStoreApp.Models.Pedido> DataPedido {get; set;}
+
+        public DbSet<AngelaStoreApp.Models.DetallePedido> DataDetallePedido {get; set;}
+
     }
 }

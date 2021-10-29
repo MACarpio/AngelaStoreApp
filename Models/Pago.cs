@@ -14,10 +14,8 @@ namespace AngelaStoreApp.Models
         [Column("id")]
         public int Id { get; set; }
         public DateTime PaymentDate { get; set; }
-        public String NombreTarjeta { get; set; }
-        
-        public String NumeroTarjeta { get; set; }
-        
+        public String NombreTarjeta { get; set; }    
+        public String NumeroTarjeta { get; set; }        
         [NotMapped]
         public String DueDateYYMM { get; set; }
         [NotMapped]
