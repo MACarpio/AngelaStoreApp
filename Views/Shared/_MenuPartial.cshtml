@@ -8,7 +8,9 @@
         <li class="nav-item">
             <a class="nav-link item-nav" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
         </li>
-        
+        <li class="nav-item">
+            <a class="nav-link item-nav" asp-area="" asp-controller="Home" asp-action="AboutUs">Nosotros</a>
+        </li>
         
     @*if(UserManager.GetUserName(User).Equals("admin@gmail.com") *@
     @if(UserManager.GetUserName(User).Equals("admin@gmail.com")){
@@ -26,9 +28,7 @@
         <a class="nav-link item-nav" asp-area="" asp-controller="Proforma" asp-action="Index"><i class="fas fa-shopping-cart"> </i>  Carrito</a>
         </li> 
     }
-    <li class="nav-item">
-            <a class="nav-link item-nav" asp-area="" asp-controller="Home" asp-action="AboutUs">Nosotros</a>
-        </li>
+    
     </ul>
 }
 else
