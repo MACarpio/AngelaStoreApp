@@ -592,3 +592,12 @@ body {
     margin: 20px 5%;
   }
 }
+
+.crud-producto{
+  margin: 20px 25%;
+  background-color: #ffffff18;
+  padding: 20px 50px;
+  border-radius: 50px;
+  border: 2px solid black;
+  box-shadow: 5px 5px 10px 1px #17b0d6;
+}
