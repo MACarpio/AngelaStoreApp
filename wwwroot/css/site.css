@@ -432,10 +432,11 @@ body {
 
 .container-carrito{
   margin: 20px 10%;
-  background-color: #fdf73218;
+  background-color: #ffffff18;
   padding: 20px 50px;
   border-radius: 50px;
-  box-shadow: 1px 2px 1px 1px rgb(67, 66, 66);
+  border: 2px solid black;
+  box-shadow: 5px 5px 10px 1px #17b0d6;
 }
 @media (max-width: 768px) {
   .container-carrito{
@@ -481,6 +482,7 @@ body {
 }
 
 .btn-editar{
+  text-align: center;
   border: none;
   display: inline-block;
   padding: 10px 20px;
@@ -495,6 +497,7 @@ body {
 }
 
 .btn-eliminar{
+  text-align: center;
   border: none;
   display: inline-block;
   padding: 10px 20px;
@@ -550,4 +553,42 @@ body {
   border: 1px solid #ced4da;
   border-radius: 20px;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.img-proforma{
+  width: 100px;
+  height: 120px;
+}
+.carrito-btn{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrito-info{
+  display: flex;
+}
+
+.titulo-carrito{
+  font-size: .9em;
+  color: #456;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.info-carrito{
+  font-size: .9em;
+  color: #000;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+@media (max-width: 860px) {
+  .container-carrito{
+    margin: 20px 5%;
+  }
 }
