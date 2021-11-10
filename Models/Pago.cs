@@ -13,6 +13,9 @@ namespace AngelaStoreApp.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
         public int Id { get; set; }
+        public String Nombres { get; set; }
+        public String Apellidos { get; set; }
+        public String Direccion { get; set; }
         public DateTime PaymentDate { get; set; }
         public String NombreTarjeta { get; set; }    
         public String NumeroTarjeta { get; set; }        

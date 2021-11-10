@@ -460,6 +460,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+.inp-titulo{
+  width:500px;
+}
 
 .img-detalles{
   border: 2px solid black;
@@ -600,4 +603,46 @@ body {
   border-radius: 50px;
   border: 2px solid black;
   box-shadow: 5px 5px 10px 1px #17b0d6;
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(0, 162, 255, 0.25);
+}
+
+#custom-button a{
+  text-decoration: none;
+}
+#custom-button {
+  border: none;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 30px;
+  background-color: #1496b6e8;
+}
+
+#custom-button:hover {
+  transition: all 0.5s;
+  background-color: #17b0d6;
+  color: black;
+}
+
+#custom-text {
+  margin-left: 10px;
+  font-family: sans-serif;
+  color: #aaa;
+}
+.detalles-btn{
+  margin-top: 15px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/3;
 }

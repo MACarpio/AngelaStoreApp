@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AngelaStoreApp.Data;
 using AngelaStoreApp.Models;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace AngelaStoreApp.Controllers
 {
@@ -54,10 +56,20 @@ namespace AngelaStoreApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Descripcion,Price,ImagenName,DueDate,Status")] Product product)
+        public async Task<IActionResult> Create(Product product, List<IFormFile> upload)
         {
             if (ModelState.IsValid)
             {
+                if(upload.Count > 0 ){
+
+                    foreach(var up in upload){
+                          Stream str = up.OpenReadStream();
+                          BinaryReader br = new BinaryReader(str);
+                          Byte [] fileDet = br.ReadBytes((Int32) str.Length);
+                          product.Imagen = fileDet;
+                          product.ImagenName = Path.GetFileName(up.FileName);
+                        }
+                }
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,7 +98,7 @@ namespace AngelaStoreApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Descripcion,Price,ImagenName,DueDate,Status")] Product product)
+        public async Task<IActionResult> Edit(int id,Product product, List<IFormFile> upload)
         {
             if (id != product.Id)
             {
@@ -96,7 +108,24 @@ namespace AngelaStoreApp.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
+                {   
+                    if(upload.Count == 0){
+                        byte [] imagen=product.Imagen;
+                        var nom=product.ImagenName;
+                        product.Imagen=imagen;
+                        product.ImagenName=nom;
+                    }
+                    if(upload.Count != 0 ){
+
+                    foreach(var up in upload){
+                          Stream str = up.OpenReadStream();
+                          BinaryReader br = new BinaryReader(str);
+                          Byte [] fileDet = br.ReadBytes((Int32) str.Length);
+                          product.Imagen = fileDet;
+                          product.ImagenName = Path.GetFileName(up.FileName);
+                        }
+                    }
+                    
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -115,7 +144,6 @@ namespace AngelaStoreApp.Controllers
             }
             return View(product);
         }
-
         // GET: Product/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -149,5 +177,10 @@ namespace AngelaStoreApp.Controllers
         {
             return _context.DataProduct.Any(e => e.Id == id);
         }
+        public IActionResult MostrarImagen(int id){
+           var producto = _context.DataProduct.Find(id);
+           byte[] imagen = producto.Imagen;
+           return File( imagen ,"img/png");  
+       }
     }
 }

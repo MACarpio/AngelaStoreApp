@@ -68,6 +68,11 @@ namespace AngelaStoreApp.Controllers
                 return  RedirectToAction(nameof(Index));
             }
         }
+        public IActionResult MostrarImagen(int id){
+           var producto = _context.DataProduct.Find(id);
+           byte[] imagen = producto.Imagen;
+           return File( imagen ,"img/png");  
+       }
 
     }
 }

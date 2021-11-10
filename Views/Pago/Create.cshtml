@@ -3,62 +3,61 @@
     ViewData["Title"] = "Pago";
 }
 
-<h1>@ViewData["Title"]</h1>
-
+<div class="seccion-titulo" >
+  <h5 class="titulo-prim">@ViewData["Title"]</h5>
+</div>
     <div class="container">
-
-        <div class="row">
-          <div class="col-sm-10 mt-5">
+          <div class="crud-producto">
            <form asp-controller="Pago" asp-action="Pagar">
-              <div class="form-group row">
+              <div class="form-group">
                 <input type="hidden" asp-for="UserID"/>
-                <div class="col-sm-2">
-                  <label asp-for="NombreTarjeta" class="control-label"></label>
+                <div class="">
+                  <label asp-for="NombreTarjeta" class="control-label">Tipo de tarjeta</label>
                 </div>
-                <div class="col-sm-2">
+                <div class="">
                   <input asp-for="NombreTarjeta" class="form-control" /> 
                 </div>
               </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label asp-for="NumeroTarjeta" class="control-label"></label>
+              <div class="form-group">
+                <div class="">
+                  <label asp-for="NumeroTarjeta" class="control-label">Numero de tarjeta</label>
                 </div>
-                <div class="col-sm-2">
+                <div class="">
                   <input asp-for="NumeroTarjeta" class="form-control" data-inputmask="'mask': '9999-9999-9999-9999'" />
                 </div>
               </div>              
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label asp-for="DueDateYYMM" class="control-label"></label>
+              <div class="form-group">
+                <div class="">
+                  <label asp-for="DueDateYYMM" class="control-label">Fecha de registro</label>
                 </div>
-                <div class="col-sm-2">
-                  <input asp-for="DueDateYYMM" class="form-control" data-inputmask="'mask': '99/99', 'placeholder': 'yy/mm'" />
+                <div class="">
+                  <input asp-for="DueDateYYMM" class="form-control" type="date" />
                 </div>
               </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label asp-for="Cvv" class="control-label"></label>
+              <div class="form-group">
+                <div class="">
+                  <label asp-for="Cvv" class="control-label">CVV</label>
                 </div>
-                <div class="col-sm-2">
+                <div class="">
                   <input asp-for="Cvv" class="form-control" data-inputmask="'mask': '999', 'placeholder': '999'" />
                 </div>
               </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label asp-for="MontoTotal" class="control-label"></label>
+              <div class="form-group">
+                <div class="">
+                  <label asp-for="MontoTotal" class="control-label">Monto a pagar</label>
                 </div>
-                <div class="col-sm-2">
-                  <input asp-for="MontoTotal" class="form-control" data-thousands="," data-decimal="." />
+                <div class="">
+                  <input asp-for="MontoTotal" class="form-control" data-thousands="," data-decimal="." disabled />
+                  <input type="hidden" asp-for="MontoTotal"/>
                 </div>
               </div>  
-              <div class="form-group row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2">
-                  <button type="submit" class="btn btn-primary">Pagar</button> 
+              <div class="form-group">
+                
+                <div class="">
+                  <button type="submit" class="btn btn-prim">Pagar</button> 
                 </div>
-              </div>
+              
             </form>
             <h1>@ViewData["Message"]</h1>
-          </div>
         </div>
     </div
