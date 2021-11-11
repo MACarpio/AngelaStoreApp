@@ -1,5 +1,6 @@
 @model AngelaStoreApp.Models.Product
 
+
 @{
     ViewData["Title"] = "Delete";
 }
@@ -54,7 +55,7 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="ELIMINAR" class="btn btn-eliminar" /> |
+        <input type="submit" value="Delete" class="btn btn-eliminar" /> |
         <a asp-action="Index" class="btn btn-prim">Regresar al catálogo</a>
     </form>
 </div>

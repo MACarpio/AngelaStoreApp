@@ -7,82 +7,83 @@
     listProformas = @Model.proformas;
     Decimal montoTotal = @Model.montoTotal;
 }
-
-<div class="seccion-titulo" >
-  <h5 class="titulo-prim">@ViewData["Title"]</h5>
+<div class="seccion-titulo">
+    <h5 class="titulo-prim">@ViewData["Title"]</h5>
 </div>
 <div class="container-carrito">
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <h5 class="titulo-carrito">Imagen</h5>
-            </th>
-            <th>
-                <h5 class="titulo-carrito">Nombre del producto</h5>
-            </th>
-            <th>
-                <h5 class="titulo-carrito">Cantidad</h5>
-            </th>
-            <th>
-                <h5 class="titulo-carrito">Precio</h5>
-            </th>
-            <th>
-                <h5 class="titulo-carrito">Total</h5>
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (Proforma item in Model.proformas) {
-        <tr>
-            <td style="text-align: center;">
-                <img class="img-proforma" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Producto.Id })"
-                    alt="@item.Producto.ImagenName" />
-            </td>
-            <td>
-                <h5 class="info-carrito">
-                @Html.DisplayFor(modelItem => item.Producto.Name)
-                </h5>
-            </td>
-            <td>
-                <h5 class="info-carrito">
-                @Html.DisplayFor(modelItem => item.Quantity)
-                </h5>
-            </td>
-            <td>
-                <h5 class="info-carrito">
-                @Html.DisplayFor(modelItem => item.Price)
-                </h5>
-            </td>
-            <td>
-                <h5 class="info-carrito">
-                @(item.Quantity*item.Price)
-                </h5>
-            </td>
-            <td class="carrito-btn">
-                <a class="btn-editar" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                <a class="btn-eliminar" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-<tr>
-    <td>
-        <h5 class="titulo-carrito">
-            Total
-        </h5>
-    </td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>
-        <h5 class="info-carrito">
-            S/. @montoTotal
-        </h5>
-    </td>
-    <td class="carrito-btn"><a class="btn btn-prim" asp-controller="Pago" 
-        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a></td>
-</tr>
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <h5 class="titulo-carrito">Imagen</h5>
+                </th>
+                <th>
+                    <h5 class="titulo-carrito">Nombre del producto</h5>
+                </th>
+                <th>
+                    <h5 class="titulo-carrito">Cantidad</h5>
+                </th>
+                <th>
+                    <h5 class="titulo-carrito">Precio</h5>
+                </th>
+                <th>
+                    <h5 class="titulo-carrito">Total</h5>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Proforma item in Model.proformas)
+            {
+                <tr>
+                    <td style="text-align: center;">
+                        <img class="img-proforma"
+                        src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Producto.Id })"
+                        alt="@item.Producto.ImagenName" />
+                    </td>
+                    <td>
+                        <h5 class="info-carrito">
+                            @Html.DisplayFor(modelItem => item.Producto.Name)
+                        </h5>
+                    </td>
+                    <td>
+                        <h5 class="info-carrito">
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </h5>
+                    </td>
+                    <td>
+                        <h5 class="info-carrito">
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </h5>
+                    </td>
+                    <td>
+                        <h5 class="info-carrito">
+                            @(item.Quantity*item.Price)
+                        </h5>
+                    </td>
+                    <td class="carrito-btn">
+                        <a class="btn-editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                        <a class="btn-eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    <h5 class="titulo-carrito">
+                        Total
+                    </h5>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <h5 class="info-carrito">
+                        S/. @montoTotal
+                    </h5>
+                </td>
+                <td class="carrito-btn"><a class="btn btn-prim" asp-controller="Pago" asp-action="Create"
+                        asp-route-monto="@montoTotal">Pagar</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

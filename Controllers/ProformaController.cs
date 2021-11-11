@@ -12,7 +12,7 @@ using System.Dynamic;
 
 namespace AngelaStoreApp.Controllers
 {
-public class ProformaController: Controller
+    public class ProformaController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
@@ -23,7 +23,7 @@ public class ProformaController: Controller
             _context = context;
             _userManager = userManager;
         }
-               // GET: Proforma
+        // GET: Proforma
         public async Task<IActionResult> Index()
         {
             var userID = _userManager.GetUserName(User);
@@ -33,8 +33,8 @@ public class ProformaController: Controller
                 Where(s => s.UserID.Equals(userID));
 
             var elements = await items.ToListAsync();
-            var total = elements.Sum(c => c.Quantity * c.Price );
-            
+            var total = elements.Sum(c => c.Quantity * c.Price);
+
             dynamic model = new ExpandoObject();
             model.montoTotal = total;
             model.proformas = elements;
@@ -42,7 +42,7 @@ public class ProformaController: Controller
             return View(model);
         }
 
-         // GET: Proforma/Delete/5
+        // GET: Proforma/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -109,7 +109,24 @@ public class ProformaController: Controller
         {
             return _context.DataProforma.Any(e => e.Id == id);
         }
-
+        public async Task<IActionResult> Documento(int id)
+        {
+            // return View(await _context.Documento.ToListAsync());
+            var pedido = await _context.DataPedido.FindAsync(id);
+            var items = from x in _context.DataDetallePedido select x;
+            var productos = from o in _context.DataProduct select o;
+            items = items.
+                Include(p => p.Producto).
+                Where(s => s.pedido.ID.Equals(pedido.ID));
+            var elements = await items.ToListAsync();
+            var total = elements.Sum(c => c.Quantity * c.Price);
+            var pago = await _context.DataPago.FindAsync(id);
+            dynamic model = new ExpandoObject();
+            model.montoTotal = total;
+            model.proformas = elements;
+            model.pago = pago;
+            return View("Documento", model);
+        }
 
     }
 }

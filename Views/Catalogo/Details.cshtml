@@ -1,19 +1,20 @@
 @model AngelaStoreApp.Models.Product
 
 @{
-    ViewData["Title"] = "Details";
+  ViewData["Title"] = "Details";
 }
 
 <div class="container-detalles">
-  <div class="seccion-titulo titulo-detalles" >
+  <div class="seccion-titulo titulo-detalles">
     <h5 class="titulo-prim">@Html.DisplayFor(model => model.Name)</h5>
   </div>
   <div class="img-detalles">
-    <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })" alt="@Html.DisplayFor(model => model.ImagenName)"  />
+    <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })"
+      alt="@Html.DisplayFor(model => model.ImagenName)" />
   </div>
   <div class="info-detalles">
     <p class="nom-producto">@Html.DisplayFor(model => model.Descripcion)</p>
     <h5 class="precio-producto">@Html.DisplayFor(model => model.Price)</h5>
-    <a class="btn btn-prim" asp-action="Add" asp-route-id="@Model.Id">Add</a>
+    <a class="btn btn-prim" asp-action="Add" asp-route-id="@Model.Id">Añadir Carrito</a>
   </div>
 </div>

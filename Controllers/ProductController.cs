@@ -9,6 +9,7 @@ using AngelaStoreApp.Data;
 using AngelaStoreApp.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AngelaStoreApp.Controllers
 {
@@ -20,13 +21,13 @@ namespace AngelaStoreApp.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Product
         public async Task<IActionResult> Index()
         {
             return View(await _context.DataProduct.ToListAsync());
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Product/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -45,7 +46,20 @@ namespace AngelaStoreApp.Controllers
             return View(product);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Index(String Searchpro)
+        {
+            ViewData["Getemployeedetails"] = Searchpro;
+            var empquery = from x in _context.DataProduct select x;
+            if (!string.IsNullOrEmpty(Searchpro))
+            {
+                empquery = empquery.Where(x => x.Name.Contains(Searchpro));
+            }
+            return View(await empquery.AsNoTracking().ToListAsync());
+
+        }
         // GET: Product/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -56,19 +70,22 @@ namespace AngelaStoreApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(Product product, List<IFormFile> upload)
         {
             if (ModelState.IsValid)
             {
-                if(upload.Count > 0 ){
+                if (upload.Count > 0)
+                {
 
-                    foreach(var up in upload){
-                          Stream str = up.OpenReadStream();
-                          BinaryReader br = new BinaryReader(str);
-                          Byte [] fileDet = br.ReadBytes((Int32) str.Length);
-                          product.Imagen = fileDet;
-                          product.ImagenName = Path.GetFileName(up.FileName);
-                        }
+                    foreach (var up in upload)
+                    {
+                        Stream str = up.OpenReadStream();
+                        BinaryReader br = new BinaryReader(str);
+                        Byte[] fileDet = br.ReadBytes((Int32)str.Length);
+                        product.Imagen = fileDet;
+                        product.ImagenName = Path.GetFileName(up.FileName);
+                    }
                 }
                 _context.Add(product);
                 await _context.SaveChangesAsync();
@@ -78,6 +95,7 @@ namespace AngelaStoreApp.Controllers
         }
 
         // GET: Product/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -98,7 +116,8 @@ namespace AngelaStoreApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,Product product, List<IFormFile> upload)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id, Product product, List<IFormFile> upload)
         {
             if (id != product.Id)
             {
@@ -108,24 +127,26 @@ namespace AngelaStoreApp.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {   
-                    if(upload.Count == 0){
-                        byte [] imagen=product.Imagen;
-                        var nom=product.ImagenName;
-                        product.Imagen=imagen;
-                        product.ImagenName=nom;
+                {
+                    if (upload == null || upload.Count <= 0)
+                    {
+                        byte[] imagen = product.Imagen;
+                        var nom = product.ImagenName;
+                        product.Imagen = imagen;
+                        product.ImagenName = nom;
                     }
-                    if(upload.Count != 0 ){
-
-                    foreach(var up in upload){
-                          Stream str = up.OpenReadStream();
-                          BinaryReader br = new BinaryReader(str);
-                          Byte [] fileDet = br.ReadBytes((Int32) str.Length);
-                          product.Imagen = fileDet;
-                          product.ImagenName = Path.GetFileName(up.FileName);
+                    else
+                    {
+                        foreach (var up in upload)
+                        {
+                            Stream str = up.OpenReadStream();
+                            BinaryReader br = new BinaryReader(str);
+                            Byte[] fileDet = br.ReadBytes((Int32)str.Length);
+                            product.Imagen = fileDet;
+                            product.ImagenName = Path.GetFileName(up.FileName);
                         }
                     }
-                    
+                    ModelState.AddModelError("precio", "Solo valores numericos");
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -144,7 +165,9 @@ namespace AngelaStoreApp.Controllers
             }
             return View(product);
         }
+
         // GET: Product/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -165,10 +188,11 @@ namespace AngelaStoreApp.Controllers
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.DataProduct.FindAsync(id);
-            _context.DataProduct.Remove(product);
+            product.Status = "ELIMINADO";
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -177,10 +201,11 @@ namespace AngelaStoreApp.Controllers
         {
             return _context.DataProduct.Any(e => e.Id == id);
         }
-        public IActionResult MostrarImagen(int id){
-           var producto = _context.DataProduct.Find(id);
-           byte[] imagen = producto.Imagen;
-           return File( imagen ,"img/png");  
-       }
+        public IActionResult MostrarImagen(int id)
+        {
+            var producto = _context.DataProduct.Find(id);
+            byte[] imagen = producto.Imagen;
+            return File(imagen, "img/png");
+        }
     }
 }

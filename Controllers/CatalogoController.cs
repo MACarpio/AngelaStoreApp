@@ -10,7 +10,7 @@ using AngelaStoreApp.Data;
 
 namespace AngelaStoreApp.Controllers
 {
-     public class CatalogoController:Controller
+    public class CatalogoController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
@@ -22,18 +22,20 @@ namespace AngelaStoreApp.Controllers
             _userManager = userManager;
         }
 
-         public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             var productos = from o in _context.DataProduct select o;
             return View(await productos.ToListAsync());
         }
 
-         [HttpGet]
-        public async Task<IActionResult> Index(String Empsearch){
-            ViewData["Getemployeedetails"]=Empsearch;
-            var empquery=from x in _context.DataProduct select x;
-            if(!string.IsNullOrEmpty(Empsearch)){
-                empquery=empquery.Where(x =>x.Name.Contains(Empsearch))  ;
+        [HttpGet]
+        public async Task<IActionResult> Index(String Empsearch)
+        {
+            ViewData["Getemployeedetails"] = Empsearch;
+            var empquery = from x in _context.DataProduct select x;
+            if (!string.IsNullOrEmpty(Empsearch))
+            {
+                empquery = empquery.Where(x => x.Name.Contains(Empsearch));
             }
             return View(await empquery.AsNoTracking().ToListAsync());
 
@@ -42,21 +44,25 @@ namespace AngelaStoreApp.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             Product objProduct = await _context.DataProduct.FindAsync(id);
-            if(objProduct == null){
+            if (objProduct == null)
+            {
                 return NotFound();
             }
             return View(objProduct);
         }
 
 
-          public async Task<IActionResult> Add(int? id)
+        public async Task<IActionResult> Add(int? id)
         {
             var userID = _userManager.GetUserName(User);
-            if(userID == null){
+            if (userID == null)
+            {
                 ViewData["Message"] = "Por favor debe loguearse antes de agregar un producto";
                 List<Product> productos = new List<Product>();
-                return  View("Index",productos);
-            }else{
+                return View("Index", productos);
+            }
+            else
+            {
                 var producto = await _context.DataProduct.FindAsync(id);
                 Proforma proforma = new Proforma();
                 proforma.Producto = producto;
@@ -65,14 +71,15 @@ namespace AngelaStoreApp.Controllers
                 proforma.UserID = userID;
                 _context.Add(proforma);
                 await _context.SaveChangesAsync();
-                return  RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));
             }
         }
-        public IActionResult MostrarImagen(int id){
-           var producto = _context.DataProduct.Find(id);
-           byte[] imagen = producto.Imagen;
-           return File( imagen ,"img/png");  
-       }
+        public IActionResult MostrarImagen(int id)
+        {
+            var producto = _context.DataProduct.Find(id);
+            byte[] imagen = producto.Imagen;
+            return File(imagen, "img/png");
+        }
 
     }
 }

@@ -10,20 +10,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AngelaStoreApp.Controllers
 {
-    public class PagoController: Controller
+    public class PagoController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         public PagoController(ApplicationDbContext context,
             UserManager<IdentityUser> userManager)
-            {
+        {
             _context = context;
             _userManager = userManager;
         }
 
         public IActionResult Create(Decimal monto)
         {
-             Pago pago = new Pago();
+            Pago pago = new Pago();
             pago.UserID = _userManager.GetUserName(User);
             pago.MontoTotal = monto;
             return View(pago);
@@ -34,7 +34,6 @@ namespace AngelaStoreApp.Controllers
         {
             pago.PaymentDate = DateTime.Now;
             _context.Add(pago);
-
             var itemsProforma = from o in _context.DataProforma select o;
             itemsProforma = itemsProforma.
                 Include(p => p.Producto).
@@ -49,27 +48,38 @@ namespace AngelaStoreApp.Controllers
 
 
             List<DetallePedido> itemsPedido = new List<DetallePedido>();
-            foreach(var item in itemsProforma.ToList()){
+            foreach (var item in itemsProforma.ToList())
+            {
                 DetallePedido detallePedido = new DetallePedido();
-                detallePedido.pedido=pedido;
+                detallePedido.pedido = pedido;
                 detallePedido.Price = item.Price;
                 detallePedido.Producto = item.Producto;
                 detallePedido.Quantity = item.Quantity;
                 itemsPedido.Add(detallePedido);
-
-        }
-        _context.AddRange(itemsPedido);
+            }
+            _context.AddRange(itemsPedido);
 
             foreach (Proforma p in itemsProforma.ToList())
             {
-                p.Status="PROCESADO";
+                p.Status = "PROCESADO";
             }
             _context.UpdateRange(itemsProforma);
-
+            foreach (Proforma p in itemsProforma)
+            {
+                if (p.Status == "PROCESADO")
+                {
+                    _context.Remove(p);
+                }
+            }
             _context.SaveChanges();
             ViewData["Message"] = "El pago se ha registrado";
-            return View("Create");
+            return RedirectToAction(nameof(Confirmacion), pago);
         }
 
+        public IActionResult Confirmacion(int id)
+        {
+            var pago = _context.DataPago.Find(id);
+            return View(pago);
+        }
     }
 }
