@@ -33,6 +33,12 @@ namespace AngelaStoreApp.Models
 
         [Column("status")]
         public String Status { get; set; }
+
+        [Column("Categoria")]
+        public String Categoria { get; set; }
+        [Column("Genero")]
+        public String Genero { get; set; }
+
         public Product()
         {
             DueDate = DateTime.Now;

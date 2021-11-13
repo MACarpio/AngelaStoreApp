@@ -3,15 +3,17 @@ using System;
 using AngelaStoreApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AngelaStoreApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211111003608_AddTallaCategoria")]
+    partial class AddTallaCategoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,9 +70,6 @@ namespace AngelaStoreApp.Data.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");
-
-                    b.Property<string>("Talla")
-                        .HasColumnType("text");
 
                     b.Property<int?>("pedidoID")
                         .HasColumnType("integer");
@@ -168,10 +167,6 @@ namespace AngelaStoreApp.Data.Migrations
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("duedate");
 
-                    b.Property<string>("Genero")
-                        .HasColumnType("text")
-                        .HasColumnName("Genero");
-
                     b.Property<byte[]>("Imagen")
                         .HasColumnType("bytea")
                         .HasColumnName("Imagen");
@@ -191,6 +186,10 @@ namespace AngelaStoreApp.Data.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("text")
                         .HasColumnName("status");
+
+                    b.Property<string>("Talla")
+                        .HasColumnType("text")
+                        .HasColumnName("Talla");
 
                     b.HasKey("Id");
 
@@ -215,9 +214,6 @@ namespace AngelaStoreApp.Data.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Status")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Talla")
                         .HasColumnType("text");
 
                     b.Property<string>("UserID")

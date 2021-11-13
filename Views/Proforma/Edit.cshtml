@@ -24,7 +24,15 @@
         <input asp-for="Price" class="form-control" disabled />
         <span asp-validation-for="Price" class="text-danger"></span>
       </div>
-
+      <div class="form-group">
+        <label asp-for="Talla" class="control-label">Talla</label>
+        <select asp-for="Talla" class="custom-select form-control">
+          <option value="S">Small</option>
+          <option value="M">Medium</option>
+          <option value="L">Large</option>
+        </select>
+        <span asp-validation-for="Talla" class="text-danger"></span>
+      </div>
       <div class="form-group">
         <label asp-for="Quantity" class="control-label text-center">Cantidad</label>
         <input asp-for="Quantity" class="form-control" />

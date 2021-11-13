@@ -76,7 +76,7 @@ namespace AngelaStoreApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Quantity,Price,UserID")] Proforma proforma)
+        public async Task<IActionResult> Edit(int id, Proforma proforma)
         {
             if (id != proforma.Id)
             {
@@ -123,7 +123,7 @@ namespace AngelaStoreApp.Controllers
             var pago = await _context.DataPago.FindAsync(id);
             dynamic model = new ExpandoObject();
             model.montoTotal = total;
-            model.proformas = elements;
+            model.detalle = elements;
             model.pago = pago;
             return View("Documento", model);
         }

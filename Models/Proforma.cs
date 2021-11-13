@@ -14,6 +14,7 @@ namespace AngelaStoreApp.Models
         [Column("id")]
         public int Id { get; set; }
         public String UserID { get; set; }
+        public String Talla { get; set; }
         public Product Producto { get; set; }
         public int Quantity { get; set; }
         public Decimal Price { get; set; }

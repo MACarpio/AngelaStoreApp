@@ -6,11 +6,11 @@ const realFileBtn = document.getElementById("real-file");
 const customBtn = document.getElementById("custom-button");
 const customTxt = document.getElementById("custom-text");
 
-customBtn.addEventListener("click", function() {
+customBtn.addEventListener("click", function () {
   realFileBtn.click();
 });
 
-realFileBtn.addEventListener("change", function() {
+realFileBtn.addEventListener("change", function () {
   if (realFileBtn.value) {
     customTxt.innerHTML = realFileBtn.value.match(
       /[\/\\]([\w\d\s\.\-\(\)]+)$/
@@ -19,3 +19,19 @@ realFileBtn.addEventListener("change", function() {
     customTxt.innerHTML = "No file chosen, yet.";
   }
 });
+
+const datefield = document.getElementById("datefield");
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth(); //January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+  dd = "0" + dd;
+}
+
+if (mm < 10) {
+  mm = "0" + mm;
+}
+today = yyyy + "-" + mm + "-" + dd;
+datefield.setAttribute("min", today);

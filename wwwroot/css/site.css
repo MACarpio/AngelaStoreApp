@@ -22,9 +22,11 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  text-decoration: none;
 }
-
+a:hover {
+  text-decoration: none;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -274,24 +276,34 @@ body {
 .contenedor-catalogo {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 25px;
+  gap: 60px;
   margin: 0 15%;
 }
 
 .img-catalogo {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-img-actions {
   height: 40vh;
-  object-fit: cover;
+  width: 100%;
 }
 
 .nom-producto {
+  margin-top: -25px;
+  color: black;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
 }
 
 .precio-producto {
+  margin-bottom: -10px;
+  color: #ea8888;
   text-align: center;
+  font-weight: bold;
   font-size: 1em;
 }
 
@@ -315,9 +327,13 @@ body {
 
 .card {
   border: none !important;
-  border-bottom: 2px solid gray !important;
-  border-right: 2px solid gray !important;
-  border-radius: 30px;
+  border-bottom: 1px solid gray !important;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: #cac52b 0px 2px 0.25px 0px;
 }
 
 .btn-completo {
@@ -357,7 +373,7 @@ body {
   border: 2px solid black;
   box-shadow: 5px 5px 10px 1px #d6d017;
   width: 100%;
-  height: 70vh;
+  height: auto;
 }
 
 .info-detalles {
@@ -708,4 +724,41 @@ body {
 }
 .bs-estado {
   width: 200px;
+}
+.catal:hover .nom-producto {
+  transition: ease 0.5s;
+  font-size: 1.04em;
+  -webkit-transition: ease 0.5s;
+  -moz-transition: ease 0.5s;
+  -ms-transition: ease 0.5s;
+  -o-transition: ease 0.5s;
+}
+.desc-product {
+  font-size: 15px;
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10%;
+}
+.desc-talla {
+  margin-bottom: 10%;
+  width: 50%;
+  text-align: center;
+}
+.dec-label {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.custom-select {
+  font-weight: bold;
+}
+.desc-precio {
+  font-size: 15px;
+  margin-bottom: 10%;
+  color: #ea8888;
+  text-align: center;
+  font-weight: bold;
 }

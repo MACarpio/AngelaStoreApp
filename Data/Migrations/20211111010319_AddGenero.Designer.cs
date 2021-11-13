@@ -3,15 +3,17 @@ using System;
 using AngelaStoreApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AngelaStoreApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211111010319_AddGenero")]
+    partial class AddGenero
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,9 +70,6 @@ namespace AngelaStoreApp.Data.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");
-
-                    b.Property<string>("Talla")
-                        .HasColumnType("text");
 
                     b.Property<int?>("pedidoID")
                         .HasColumnType("integer");
@@ -192,6 +191,10 @@ namespace AngelaStoreApp.Data.Migrations
                         .HasColumnType("text")
                         .HasColumnName("status");
 
+                    b.Property<string>("Talla")
+                        .HasColumnType("text")
+                        .HasColumnName("Talla");
+
                     b.HasKey("Id");
 
                     b.ToTable("t_product");
@@ -215,9 +218,6 @@ namespace AngelaStoreApp.Data.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Status")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Talla")
                         .HasColumnType("text");
 
                     b.Property<string>("UserID")

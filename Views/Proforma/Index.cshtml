@@ -21,6 +21,9 @@
                     <h5 class="titulo-carrito">Nombre del producto</h5>
                 </th>
                 <th>
+                    <h5 class="titulo-carrito">Talla</h5>
+                </th>
+                <th>
                     <h5 class="titulo-carrito">Cantidad</h5>
                 </th>
                 <th>
@@ -48,17 +51,22 @@
                     </td>
                     <td>
                         <h5 class="info-carrito">
+                            @Html.DisplayFor(modelItem => item.Talla)
+                        </h5>
+                    </td>
+                    <td>
+                        <h5 class="info-carrito">
                             @Html.DisplayFor(modelItem => item.Quantity)
                         </h5>
                     </td>
                     <td>
                         <h5 class="info-carrito">
-                            @Html.DisplayFor(modelItem => item.Price)
+                            S/ @Html.DisplayFor(modelItem => item.Price)
                         </h5>
                     </td>
                     <td>
                         <h5 class="info-carrito">
-                            @(item.Quantity*item.Price)
+                            S/ @(item.Quantity*item.Price)
                         </h5>
                     </td>
                     <td class="carrito-btn">
@@ -73,6 +81,7 @@
                         Total
                     </h5>
                 </td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

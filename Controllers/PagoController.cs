@@ -33,6 +33,7 @@ namespace AngelaStoreApp.Controllers
         public IActionResult Pagar(Pago pago)
         {
             pago.PaymentDate = DateTime.Now;
+            pago.FechaEntrega = DateTime.Now.AddDays(3);
             _context.Add(pago);
             var itemsProforma = from o in _context.DataProforma select o;
             itemsProforma = itemsProforma.
@@ -53,6 +54,7 @@ namespace AngelaStoreApp.Controllers
                 DetallePedido detallePedido = new DetallePedido();
                 detallePedido.pedido = pedido;
                 detallePedido.Price = item.Price;
+                detallePedido.Talla = item.Talla;
                 detallePedido.Producto = item.Producto;
                 detallePedido.Quantity = item.Quantity;
                 itemsPedido.Add(detallePedido);

@@ -52,7 +52,7 @@ namespace AngelaStoreApp.Controllers
         }
 
 
-        public async Task<IActionResult> Add(int? id)
+        public async Task<IActionResult> Add(int? id, string talla)
         {
             var userID = _userManager.GetUserName(User);
             if (userID == null)
@@ -68,6 +68,7 @@ namespace AngelaStoreApp.Controllers
                 proforma.Producto = producto;
                 proforma.Price = producto.Price;
                 proforma.Quantity = 1;
+                proforma.Talla = talla;
                 proforma.UserID = userID;
                 _context.Add(proforma);
                 await _context.SaveChangesAsync();
